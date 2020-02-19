@@ -1,0 +1,20 @@
+#. default-message: Concatenate tabs
+msgid "_spec.name"
+msgstr ""
+
+#. default-message: Append rows from other tabs to this tab.
+msgid "_spec.description"
+msgstr ""
+
+#. default-message: Select tabs to append
+msgid "_spec.parameters.tabs.placeholder"
+msgstr ""
+
+#. default-message: Add source column
+msgid "_spec.parameters.add_source_column.name"
+msgstr ""
+
+#. default-message: Source
+msgid "_spec.parameters.source_column_name.placeholder"
+msgstr ""
+
