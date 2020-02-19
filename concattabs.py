@@ -2,6 +2,8 @@ from collections import namedtuple
 
 import pandas as pd
 
+from cjwmodule import i18n
+
 UsedColumn = namedtuple("UsedColumn", ("type", "tab_name"))
 
 
@@ -23,12 +25,21 @@ def render(table, params, *, tab_name, input_columns):
             if column.name in used_columns:
                 used_column = used_columns[column.name]
                 if used_column.type != column.type:
-                    return (
-                        f'Cannot concatenate column "{column.name}" of type '
-                        f'"{column.type}" in "{tab.name}" to column '
-                        f'"{column.name}" of type "{used_column.type}" in '
-                        f'"{used_column.tab_name}". Please convert one or the '
-                        "other so they are the same type."
+                    return i18n.trans(
+                        "badParam.tabs.differentTypes.message",
+                        'Cannot concatenate column "{column_name}" of type '
+                        '"{column_type}" in "{column_tab_name}" to column '
+                        '"{used_column_name}" of type "{used_column_type}" in '
+                        '"{used_column_tab_name}". Please convert one or the '
+                        "other so they are the same type.",
+                        {
+                            "column_name": column.name,
+                            "column_type": column.type,
+                            "column_tab_name": tab.name,
+                            "used_column_name": column.name,  # They are equal
+                            "used_column_type": used_column.type,
+                            "used_column_tab_name": used_column.tab_name,
+                        },
                     )
             else:
                 used_columns[column.name] = UsedColumn(column.type, tab.name)
@@ -37,10 +48,11 @@ def render(table, params, *, tab_name, input_columns):
         source_colname = params["source_column_name"] or "Source"
         if source_colname in used_columns:
             tab_name = used_columns[source_colname].tab_name
-            return (
-                f'Cannot create column "{source_colname}": "{tab_name}" '
-                "already has that column. Please write a different Source "
-                "column name."
+            return i18n.trans(
+                "badParam.add_source_column.alreadyExists",
+                'Cannot create column "{source_colname}": "{tab_name}" '
+                "already has that column. Please write a different Source column name.",
+                {"source_colname": source_colname, "tab_name": tab_name},
             )
     else:
         source_colname = None

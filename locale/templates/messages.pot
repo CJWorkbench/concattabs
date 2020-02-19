@@ -18,3 +18,13 @@ msgstr ""
 msgid "_spec.parameters.source_column_name.placeholder"
 msgstr ""
 
+#. default-message: Cannot concatenate column "{column_name}" of type "{column_type}" in "{column_tab_name}" to column "{used_column_name}" of type "{used_column_type}" in "{used_column_tab_name}". Please convert one or the other so they are the same type.
+#: concattabs.py:28
+msgid "badParam.tabs.differentTypes.message"
+msgstr ""
+
+#. default-message: Cannot create column "{source_colname}": "{tab_name}" already has that column. Please write a different Source column name.
+#: concattabs.py:51
+msgid "badParam.add_source_column.alreadyExists"
+msgstr ""
+

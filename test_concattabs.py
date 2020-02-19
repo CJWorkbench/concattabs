@@ -5,6 +5,7 @@ from typing import Dict, Optional
 import numpy as np
 import pandas as pd
 from pandas.testing import assert_frame_equal
+from cjwmodule.testing.i18n import i18n_message
 
 from concattabs import render
 
@@ -109,10 +110,16 @@ class ConcattabsTest(unittest.TestCase):
         )
         self.assertEqual(
             result,
-            (
-                'Cannot concatenate column "A" of type "number" in "Tab 2" to '
-                'column "A" of type "text" in "Tab 1". Please convert one or the '
-                "other so they are the same type."
+            i18n_message(
+                "badParam.tabs.differentTypes.message",
+                {
+                    "column_name": "A",
+                    "column_type": "number",
+                    "column_tab_name": "Tab 2",
+                    "used_column_name": "A",
+                    "used_column_type": "text",
+                    "used_column_tab_name": "Tab 1",
+                },
             ),
         )
 

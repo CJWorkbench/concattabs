@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-19 08:53+0000\n"
+"POT-Creation-Date: 2020-02-19 08:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: el\n"
@@ -33,4 +33,12 @@ msgstr "Προσθήκη στήλης προέλευσης"
 
 msgid "_spec.parameters.source_column_name.placeholder"
 msgstr "Προέλευση"
+
+#: concattabs.py:28
+msgid "badParam.tabs.differentTypes.message"
+msgstr ""
+
+#: concattabs.py:51
+msgid "badParam.add_source_column.alreadyExists"
+msgstr ""
 
